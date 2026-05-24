@@ -36,8 +36,25 @@
             <li><a href="{{ url_for('index') }}"
             class="navbar__link {% if request.endpoint == 'index' %}navbar__link--active{% endif &}">
         Home
-    </a></li>
-
+            </a></li>
+            <li><a href="{{ url_for('recipes') }}"
+                   class="navbar__link {% if request.endpoint == 'recipes' %}navbar__link--active{% endif %}">
+                Recipes
+            </a></li>
+ 
+            <li><a href="{{ url_for('favourites') }}"
+                   class="navbar__link {% if request.endpoint == 'favourites' %}navbar__link--active{% endif %}">
+                Favourites
+            </a></li>
+ 
+            <li><a href="{{ url_for('about') }}"
+                   class="navbar__link {% if request.endpoint == 'about' %}navbar__link--active{% endif %}">
+                About
+            </a></li>
+        </ul>
+ 
+        <a href="{{ url_for('add_recipe') }}" class="btn btn--primary navbar__cta">+ Add Recipe</a>
+    </nav>
 
          </ul>
     </nav>

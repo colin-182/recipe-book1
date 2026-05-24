@@ -73,6 +73,23 @@
      {% endif %}
      {% endwith %}
 
-     
+     <!-- Main content | each template fills this block -->
+      <main class="main-content">
+        {% block content %}{% endblock %}
+      </main>
+
+     <!-- Footer -->
+      <footer class="footer">
+        <div class="footer__inner">
+            <span class="footer__logo">Gach Rud Ina áit</span>
+            <p class="footer__tagline">Gach Rud Ina áit fein.</p>
+            <p class="footer__copy">&copy; {{ 2025 }} | Built with Flask & PostgreSQL</p>
+        </div>
+      </footer>
+
+      <!-- Main JavaScript -->
+       <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+       {% block extra_scripts %}{% endblock %}
 </body>
 </html>

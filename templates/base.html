@@ -58,5 +58,21 @@
 
          </ul>
     </nav>
+
+    <!-- Flash messages that will display success/error feedback from Flaks routes -->
+     {% with messages = get_flashed_messages(with_categories=true) %}
+     {% if messages %}
+     <div class="flash-container">
+        {% for category, message in messages %}
+        <div class="flash flash--{{category}}">
+            {{ message }}
+            <button class="flash__close" onclick="this.parentElement.remove()">x</button>
+        </div>
+        {% endfor %}
+     </div>
+     {% endif %}
+     {% endwith %}
+
+     
 </body>
 </html>

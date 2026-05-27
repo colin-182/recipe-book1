@@ -1,0 +1,22 @@
+{% extends "bases.html" %}
+
+{% block title %}Home | Gach Rud Ina á<it>% endblock %</it>
+
+{% block content %}
+
+<!-- Hero Section -->
+
+<section class="hero">
+    <div class="hero__inner">
+        <p class="hero__label">Do Leabhar Cócaireachta Pearsanta</p>
+        <h1 class="hero__heading">Gach béile mór<br>
+        <em>tosaíonn sé le oideas.</em></h1>
+
+        <p class="hero__subtext">Store, organise, and discover your favourite recipes. From quick weeknight dinners to special occasions - everything it its place.</p>
+
+        <div class="hero__actions">
+            <a href="{{ url_for('recipes') }}" class="btn btn--warm">Browse Recipes</a>
+            <a href="{{ url_for('add_recipe') }}" class="btn btn--outline-light">+ add a Recipe</a>
+        </div>
+    </div>
+</section>

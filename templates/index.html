@@ -57,7 +57,35 @@
         
         <!-- Banner -->
          <div class="recipe-card__banner" style="background-color: {{ recipe.colour }};">
-            <span class="recipe-card"
+            <i class="fa-solid fa-bowl-food recipe-card__icon"></i>
          </div>
+
+         <div class="recipe-card__body">
+            <div class="recipe-card__top">
+                <h3 class="recipe-card__title"> {{recipe.title }}</h3>
+                <form action="{{ url_for('toggle_favourite', recipe_id=recipe.id) }}"
+                method="POST"
+                onclick="event.stopPropagation()">
+                <button type="submit" class="fav-btn" aria-label="Toggle favourite">
+                    {% if receipe.is_favourite %}
+                    <i class="fa-solid fa-heart"></i>
+                    {% else %}
+                    <i class="fa-regular fa-heart"></i>
+                    {% endif %}
+                </button>
+            </form>
+            </div>
+
+            <p class="recipe-card__desc">{{ recipe.description }}</p>
+
+            <div class="recipe-card__meta">
+                <span><i class="fa-regular fa-clock"></i> {{ recipe.cook_time }} </span>
+                <span><i class="fa-solid fa-user-group"></i> {{ recipe.servings }} </span>
+                <span class="badge badge--{{ recipe.difficulty | lower }}"> {{ recipe.difficulty }}</span>
+            </div>
+         </div>
+         {% endfor %}
     </div>
+
+    
 </section>

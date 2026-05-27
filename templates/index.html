@@ -87,5 +87,15 @@
          {% endfor %}
     </div>
 
-    
+    {% else %}
+
+    <div class="empty-state">
+        <i class="fa-solid fa-bowl-food empty-state__icon"></i>
+        <h3 class="empty-state__heading">No recipes yet!</h3>
+        <p class="empty-state__text">Start building your collections by adding your first recipe.</p>
+        <a href="{{ url_for('add_recipe') }}" class="btn btn--primary">+ Add Your First Recipe</a>
+    </div>
+    {% endif %}
 </section>
+
+{% endblcok %}

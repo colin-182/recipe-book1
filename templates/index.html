@@ -40,3 +40,24 @@
 </section>
 
 <!-- Featured reciepes -->
+
+<section class="featured">
+    <div class="featured__header">
+        <div>
+            <p class="section__label">Fresh from the collection</p>
+            <h2 class="section__heading">Recently Added</h2>
+        </div>
+        <a href="{{ url_for('recipes') }}" class="btn btn--outline">View All</a>
+    </div>
+
+    {% if recent_recipes %}
+    <div class="recipe-grid">
+        {% for recipe in recent_recipes %}
+        <a href="{{ url_for('recipe_detail', recipe_id=recipe.id) }}" class="recipe-card"></a>
+        
+        <!-- Banner -->
+         <div class="recipe-card__banner" style="background-color: {{ recipe.colour }};">
+            <span class="recipe-card"
+         </div>
+    </div>
+</section>

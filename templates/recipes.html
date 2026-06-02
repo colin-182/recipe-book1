@@ -16,3 +16,31 @@
         <a href="{{ url_for('add_recipe') }}" class="btn btn--primary">+ Add Recipe</a>
     </div>
 </section>
+
+<!-- Search and filters -->
+
+<section class="filters">
+    <form class="filters__form" method="GET" actio="{{ url_for('recipes') }}">
+
+        <div class="filters__search">
+            <i class="fa-solid fa-magnifying-glass filters__seach-icon"></i>
+            <input 
+            type="text"
+            name="q"
+            class="filters__input"
+            placeholder="Seach recipes..."
+            value="{{ request.args.get('q', '') }}"
+            />
+        </div>
+
+        <!-- Category pills -->
+         
+        <div class="filters__categories">
+            <a href="{{ url_for('recipes') }}"
+            class="pill {% if not request.args.get('category') %}pill-activate{% endif %}">
+        {{ category }}
+    </a>
+    {% endfor %}
+        </div>
+    </form>
+</section>

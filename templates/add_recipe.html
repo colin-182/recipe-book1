@@ -136,3 +136,49 @@
                 required
             >{{ recipe.ingredients | join('\n') if recipe else '' }}</textarea>
         </div>
+
+              <!-- Method -->
+        <div class="form-group">
+            <label class="form-label" for="steps">
+                <i class="fa-solid fa-book-open"></i> Method
+            </label>
+            <p class="form-hint">Enter one step per line</p>
+            <textarea
+                id="steps"
+                name="steps"
+                class="form-input form-textarea"
+                placeholder="Boil pasta in salted water.&#10;Fry pancetta until crispy.&#10;Combine off heat with egg mixture."
+                rows="6"
+                required
+            >{{ recipe.steps | join('\n') if recipe else '' }}</textarea>
+        </div>
+ 
+        <!-- Tags -->
+        <div class="form-group">
+            <label class="form-label" for="tags">
+                <i class="fa-solid fa-tags"></i> Tags
+            </label>
+            <p class="form-hint">Comma separated, e.g. Italian, Quick, Vegetarian</p>
+            <input
+                type="text"
+                id="tags"
+                name="tags"
+                class="form-input"
+                placeholder="Italian, Quick, Vegetarian"
+                value="{{ recipe.tags | join(', ') if recipe else '' }}"
+            />
+        </div>
+ 
+        <!-- Submit -->
+        <div class="form-actions">
+            <button type="submit" class="btn btn--primary">
+                <i class="fa-solid fa-floppy-disk"></i>
+                {{ 'Save Changes' if recipe else 'Save Recipe' }}
+            </button>
+            <a href="{{ url_for('recipes') }}" class="btn btn--outline">Cancel</a>
+        </div>
+ 
+    </form>
+</section>
+ 
+{% endblock %}

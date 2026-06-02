@@ -43,3 +43,23 @@
             </button>
         </form>
     </div>
+
+       <!-- Stats row -->
+    <div class="detail-stats">
+        <div class="detail-stats__item">
+            <i class="fa-regular fa-clock detail-stats__icon"></i>
+            <span class="detail-stats__value">{{ recipe.cook_time }}</span>
+            <span class="detail-stats__label">Cook Time</span>
+        </div>
+        <div class="detail-stats__item">
+            <i class="fa-solid fa-user-group detail-stats__icon"></i>
+            <span class="detail-stats__value">{{ recipe.servings }}</span>
+            <span class="detail-stats__label">Servings</span>
+        </div>
+        <div class="detail-stats__item">
+            <i class="fa-solid fa-signal detail-stats__icon"></i>
+            <span class="detail-stats__value badge badge--{{ recipe.difficulty | lower }}">{{ recipe.difficulty }}</span>
+            <span class="detail-stats__label">Difficulty</span>
+        </div>
+    </div>
+</section>

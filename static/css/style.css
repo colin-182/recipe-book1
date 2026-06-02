@@ -1,0 +1,39 @@
+/* GACH RUD INA ÁIT — style.css
+   Aesthetic: Editorial cookbook — warm ivory tones,
+   serif headings, refined spacing, clean structure
+    */
+ 
+/* CSS Variables */
+:root {
+    /* Colours */
+    --cream:        #faf7f2;
+    --cream-dark:   #f0e8da;
+    --cream-border: #e8ddd0;
+    --brown-deep:   #2c1a0e;
+    --brown-mid:    #3d2a18;
+    --brown-light:  #7a5c3a;
+    --brown-muted:  #b8a48a;
+    --gold:         #c17f3a;
+    --gold-light:   #f5e6c8;
+    --green:        #2e7d52;
+    --red:          #b91c1c;
+    --amber:        #a16207;
+ 
+    /* Typography */
+    --font-serif:   'Playfair Display', Georgia, serif;
+    --font-sans:    'Lato', sans-serif;
+ 
+    /* Spacing */
+    --gap-xs:   8px;
+    --gap-sm:   16px;
+    --gap-md:   24px;
+    --gap-lg:   40px;
+    --gap-xl:   64px;
+ 
+    /* Layout */
+    --max-width: 1100px;
+    --radius:    3px;
+ 
+    /* Transitions */
+    --transition: 0.2s ease;
+}

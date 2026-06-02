@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+ 
+{% block title %}{{ 'Edit' if recipe else 'Add' }} Recipe | Gach Rud Ina Áit{% endblock %}
+ 
+{% block content %}
+ 
+<!-- PAGE HEADER
+     Reused for both Add and Edit — title changes based on whether a recipe object is passed in -->
+<section class="page-header">
+    <div class="page-header__inner">
+        <div>
+            <p class="section__label">{{ 'Update an existing recipe' if recipe else 'Share something delicious' }}</p>
+            <h1 class="page-header__heading">{{ 'Edit Recipe' if recipe else 'Add a Recipe' }}</h1>
+        </div>
+        <a href="{{ url_for('recipes') }}" class="back-link">
+            <i class="fa-solid fa-arrow-left"></i> Back to Recipes
+        </a>
+    </div>
+</section>

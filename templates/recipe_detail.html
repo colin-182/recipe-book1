@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+ 
+{% block title %}{{ recipe.title }} | Gach Rud Ina Áit{% endblock %}
+ 
+{% block content %}
+ 
+<!-- Back Link -->
+<div class="detail-back">
+    <a href="{{ url_for('recipes') }}" class="back-link">
+        <i class="fa-solid fa-arrow-left"></i> Back to Recipes
+    </a>
+</div>
+ 
+<!-- Recipe Banner -->
+<div class="detail-banner" style="background-color: {{ recipe.colour }};">
+    <i class="fa-solid fa-bowl-food detail-banner__icon"></i>
+</div>
+ 
+<!-- Recipe Header -->

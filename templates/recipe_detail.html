@@ -82,3 +82,21 @@
                 {% endfor %}
             </ul>
         </div>
+
+        <!-- Method -->
+        <div class="detail-method">
+            <h2 class="detail-section__heading">
+                <i class="fa-solid fa-book-open"></i> Method
+            </h2>
+            <ol class="method-list">
+                {% for step in recipe.steps %}
+                    <li class="method-list__item">
+                        <span class="method-list__number">{{ loop.index }}</span>
+                        <p class="method-list__text">{{ step }}</p>
+                    </li>
+                {% endfor %}
+            </ol>
+        </div>
+ 
+    </div>
+</section>

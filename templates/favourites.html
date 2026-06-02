@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+ 
+{% block title %}Favourites | Gach Rud Ina Áit{% endblock %}
+ 
+{% block content %}
+ 
+<!-- Page Header -->
+<section class="page-header">
+    <div class="page-header__inner">
+        <div>
+            <p class="section__label">Your saved recipes</p>
+            <h1 class="page-header__heading">Favourites</h1>
+            <p class="page-header__sub">{{ favourites | length }} recipe{{ 's' if favourites | length != 1 }} saved</p>
+        </div>
+    </div>
+</section>
+ 
+<!-- Favourites grid -->
+<section class="recipe-section">
+    {% if favourites %}
+        <div class="recipe-grid">
+            {% for recipe in favourites %}
+                <a href="{{ url_for('recipe_detail', recipe_id=recipe.id) }}" class="recipe-card">
+ 
+                    <div class="recipe-card__banner" style="background-color: {{ recipe.colour }};">
+                        <i class="fa-solid fa-bowl-food recipe-card__icon"></i>
+                    </div>
+ 
+                    <div class="recipe-card__body">
+                        <div class="recipe-card__top">
+                            <h3 class="recipe-card__title">{{ recipe.title }}</h3>

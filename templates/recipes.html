@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Recipes | Gach Rud Ina á{% endblock %}
+
+{% block content %}
+
+<!-- Page header -->
+
+<section class="page-header">
+    <div class="page-header__inner">
+        <div>
+            <p class="section__label">The full collection</p>
+            <h1 class="page-header__heading">All Recipes</h1>
+            <p class="page-header__sub">{{ recipes | length }} receipe{{ 's' if recipes | length !=1 }} in your collection</p>
+        </div>
+        <a href="{{ url_for('add_recipe') }}" class="btn btn--primary">+ Add Recipe</a>
+    </div>
+</section>

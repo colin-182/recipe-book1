@@ -63,3 +63,22 @@
         </div>
     </div>
 </section>
+
+<!-- Ingredients & methods -->
+<section class="detail-body">
+    <div class="detail-body__inner">
+ 
+        <!-- Ingredients -->
+        <div class="detail-ingredients">
+            <h2 class="detail-section__heading">
+                <i class="fa-solid fa-list-check"></i> Ingredients
+            </h2>
+            <ul class="ingredients-list">
+                {% for ingredient in recipe.ingredients %}
+                    <li class="ingredients-list__item">
+                        <i class="fa-solid fa-check ingredients-list__check"></i>
+                        {{ ingredient }}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>

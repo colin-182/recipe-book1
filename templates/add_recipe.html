@@ -105,3 +105,34 @@
                 />
             </div>
         </div>
+
+           <!-- Description -->
+        <div class="form-group">
+            <label class="form-label" for="description">
+                <i class="fa-solid fa-align-left"></i> Description
+            </label>
+            <textarea
+                id="description"
+                name="description"
+                class="form-input form-textarea"
+                placeholder="A short description of the dish…"
+                rows="3"
+                required
+            >{{ recipe.description if recipe else '' }}</textarea>
+        </div>
+ 
+        <!-- Ingredients -->
+        <div class="form-group">
+            <label class="form-label" for="ingredients">
+                <i class="fa-solid fa-list-check"></i> Ingredients
+            </label>
+            <p class="form-hint">Enter one ingredient per line</p>
+            <textarea
+                id="ingredients"
+                name="ingredients"
+                class="form-input form-textarea"
+                placeholder="400g spaghetti&#10;200g pancetta&#10;4 eggs"
+                rows="6"
+                required
+            >{{ recipe.ingredients | join('\n') if recipe else '' }}</textarea>
+        </div>

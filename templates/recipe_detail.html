@@ -17,3 +17,29 @@
 </div>
  
 <!-- Recipe Header -->
+ <section class="detail-header">
+    <div class="detail-header__inner">
+        <div>
+            <p class="section__label">{{ recipe.category }}</p>
+            <h1 class="detail-header__title">{{ recipe.title }}</h1>
+            <p class="detail-header__desc">{{ recipe.description }}</p>
+ 
+            <!-- Tags -->
+            <div class="detail-header__tags">
+                {% for tag in recipe.tags %}
+                    <span class="tag">{{ tag }}</span>
+                {% endfor %}
+            </div>
+        </div>
+ 
+        <!-- Favourite toggle -->
+        <form action="{{ url_for('toggle_favourite', recipe_id=recipe.id) }}" method="POST">
+            <button type="submit" class="fav-btn fav-btn--large" aria-label="Toggle favourite">
+                {% if recipe.is_favourite %}
+                    <i class="fa-solid fa-heart"></i>
+                {% else %}
+                    <i class="fa-regular fa-heart"></i>
+                {% endif %}
+            </button>
+        </form>
+    </div>

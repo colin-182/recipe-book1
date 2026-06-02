@@ -44,3 +44,37 @@
         </div>
     </form>
 </section>
+
+<!-- Recipe Grid -->
+
+<section class="recipe-section">
+    {% if recipes %}
+    <div class="receipe-grid">
+        {% for recipe in recipe %}
+        <a href="{{ url_for('recipe_detail', recipe_id=recipe.id) }}" class="recipe-card">
+
+            <div class="recipe-card__banner" style="background-color: {{ recipe.colour }};">
+                <i class="fa-solid fa-bowl-food recipe-card__icon"></i>
+
+                <div class="recipe-card__body">
+                    <div class="recipe-card__top">
+                        <h3 class="recipe-card__title">{{ recipe.title }}</h3>
+                        <form action="{{ url_for('toggle_favourite', recipe_id=recipe.id) }}"
+                        method="POST"
+                        onclick="event.stopPropafation()">
+                    <button type="submit" class="fav-btn" aria-label="Toggle favourite">
+                        {% if recipe.is_favourite %}
+                        <i class="fa-solid fa-heart"></i>
+                            {% else %}
+                            <i class="fa-regular fa-heart"></i>
+                        {% endif %}
+                    </button>
+                    </form>
+                    </div>
+
+                    <!-- Tags -->
+                </div>
+            </div>
+        </a>
+    </div>
+</section>

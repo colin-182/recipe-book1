@@ -71,3 +71,37 @@
                 </select>
             </div>
         </div>
+
+        <!-- Cook time & Servings (side by side) -->
+        <div class="form-row">
+            <div class="form-group">
+                <label class="form-label" for="cook_time">
+                    <i class="fa-regular fa-clock"></i> Cook Time
+                </label>
+                <input
+                    type="text"
+                    id="cook_time"
+                    name="cook_time"
+                    class="form-input"
+                    placeholder="e.g. 30 min"
+                    value="{{ recipe.cook_time if recipe else '' }}"
+                    required
+                />
+            </div>
+ 
+            <div class="form-group">
+                <label class="form-label" for="servings">
+                    <i class="fa-solid fa-user-group"></i> Servings
+                </label>
+                <input
+                    type="number"
+                    id="servings"
+                    name="servings"
+                    class="form-input"
+                    placeholder="e.g. 4"
+                    min="1"
+                    value="{{ recipe.servings if recipe else '' }}"
+                    required
+                />
+            </div>
+        </div>

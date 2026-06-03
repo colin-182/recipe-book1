@@ -663,3 +663,121 @@ em { font-style: italic; }
  
 .detail-section__heading i { color: var(--gold); font-size: 1rem; }
  
+.ingredients-list__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--cream-border);
+    font-size: 0.9rem;
+    color: var(--brown-mid);
+}
+ 
+.ingredients-list__check { color: var(--gold); font-size: 0.75rem; margin-top: 4px; flex-shrink: 0; }
+ 
+.method-list__item { display: flex; gap: var(--gap-sm); margin-bottom: var(--gap-md); align-items: flex-start; }
+ 
+.method-list__number {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--brown-deep);
+    color: var(--cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+ 
+.method-list__text { font-size: 0.9rem; line-height: 1.7; color: var(--brown-mid); padding-top: 4px; }
+ 
+.detail-actions {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--gap-lg) var(--gap-xl);
+    display: flex;
+    gap: var(--gap-sm);
+    flex-wrap: wrap;
+}
+ 
+/* ADD / EDIT FORM (add_recipe.html) */
+.form-section {
+    padding: var(--gap-lg) var(--gap-lg) var(--gap-xl);
+    max-width: 720px;
+    margin: 0 auto;
+}
+ 
+.recipe-form { display: flex; flex-direction: column; gap: var(--gap-md); }
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap-md); }
+ 
+.form-label {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--brown-light);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+ 
+.form-label i { color: var(--gold); }
+.form-hint { font-size: 0.78rem; color: var(--brown-muted); margin-top: -2px; }
+ 
+.form-input {
+    padding: 10px 14px;
+    border: 1.5px solid var(--cream-border);
+    border-radius: var(--radius);
+    background: #fff;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    color: var(--brown-deep);
+    transition: border-color var(--transition);
+    width: 100%;
+}
+ 
+.form-input:focus { outline: none; border-color: var(--brown-deep); }
+.form-input::placeholder { color: var(--brown-muted); }
+ 
+.form-select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237a5c3a' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 36px;
+    cursor: pointer;
+}
+ 
+.form-textarea { resize: vertical; min-height: 100px; line-height: 1.6; }
+.form-actions { display: flex; gap: var(--gap-sm); padding-top: var(--gap-sm); flex-wrap: wrap; }
+ 
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    :root { --gap-lg: 20px; --gap-xl: 40px; }
+ 
+    .navbar__links {
+        display: none;
+        position: absolute;
+        top: 64px; left: 0; right: 0;
+        background: var(--cream);
+        flex-direction: column;
+        padding: var(--gap-md) var(--gap-lg);
+        border-bottom: 1.5px solid var(--cream-border);
+        gap: var(--gap-md);
+    }
+ 
+    .navbar__links.is-open { display: flex; }
+    .navbar__toggle { display: flex; }
+    .navbar__cta { display: none; }
+ 
+    .hero__heading { font-size: 2rem; }
+    .stats { gap: var(--gap-lg); }
+    .recipe-grid { grid-template-columns: 1fr; }
+    .detail-body__inner { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+}

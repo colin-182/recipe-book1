@@ -575,3 +575,91 @@ em { font-style: italic; }
  
 .pill:hover { background: var(--gold-light); border-color: var(--gold); }
 .pill--active { background: var(--brown-deep); color: var(--cream); border-color: var(--brown-deep); }
+
+/* BACK LINK */
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--gap-xs);
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--brown-light);
+    transition: color var(--transition);
+}
+ 
+.back-link:hover { color: var(--gold); }
+.detail-back { padding: var(--gap-md) var(--gap-lg); max-width: var(--max-width); margin: 0 auto; }
+ 
+/* RECIPE DETAIL (recipe_detail.html) */
+.detail-banner {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+ 
+.detail-banner__icon { font-size: 5rem; color: rgba(44, 26, 14, 0.2); }
+ 
+.detail-header { max-width: var(--max-width); margin: 0 auto; padding: var(--gap-lg) var(--gap-lg) 0; }
+ 
+.detail-header__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--gap-md);
+    margin-bottom: var(--gap-md);
+}
+ 
+.detail-header__title { font-family: var(--font-serif); font-size: 2.4rem; margin-bottom: var(--gap-xs); }
+.detail-header__desc { color: var(--brown-light); line-height: 1.7; max-width: 600px; margin-bottom: var(--gap-sm); }
+.detail-header__tags { display: flex; flex-wrap: wrap; gap: 4px; }
+ 
+.detail-stats {
+    display: flex;
+    gap: var(--gap-xl);
+    padding: var(--gap-md) 0;
+    border-top: 1.5px solid var(--cream-border);
+    border-bottom: 1.5px solid var(--cream-border);
+    margin-bottom: var(--gap-lg);
+    flex-wrap: wrap;
+}
+ 
+.detail-stats__item { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
+.detail-stats__icon { font-size: 1.1rem; color: var(--gold); }
+.detail-stats__value { font-family: var(--font-serif); font-size: 1.2rem; font-weight: 700; }
+ 
+.detail-stats__label {
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--brown-muted);
+}
+ 
+.detail-body { padding: 0 var(--gap-lg) var(--gap-xl); }
+ 
+.detail-body__inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: var(--gap-xl);
+}
+ 
+.detail-section__heading {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    padding-bottom: var(--gap-sm);
+    border-bottom: 1.5px solid var(--cream-border);
+    margin-bottom: var(--gap-md);
+    display: flex;
+    align-items: center;
+    gap: var(--gap-xs);
+}
+ 
+.detail-section__heading i { color: var(--gold); font-size: 1rem; }
+ 

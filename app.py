@@ -161,3 +161,64 @@ def edit_recipe(recipe_id):
         recipe.tags        = [t.strip() for t in tags.split(',') if t.strip()]
  
         db.session.commit()
+
+        flash(f'"{recipe.title}" has been updated.', 'success')
+        return redirect(url_for('recipe_detail', recipe_id=recipe.id))
+ 
+    return render_template('add_recipe.html', recipe=recipe)
+ 
+ 
+@app.route('/recipe/<int:recipe_id>/delete', methods=['POST'])
+def delete_recipe(recipe_id):
+    """
+    Delete a recipe — POST only (no GET) to prevent
+    accidental deletion via a direct URL visit.
+    """
+    recipe = Recipe.query.get_or_404(recipe_id)
+    title  = recipe.title
+ 
+    db.session.delete(recipe)
+    db.session.commit()
+ 
+    flash(f'"{title}" has been deleted.', 'success')
+    return redirect(url_for('recipes'))
+ 
+ 
+@app.route('/recipe/<int:recipe_id>/favourite', methods=['POST'])
+def toggle_favourite(recipe_id):
+    """
+    Toggles the is_favourite flag on a recipe.
+    Redirects back to whichever page the user came from.
+    """
+    recipe             = Recipe.query.get_or_404(recipe_id)
+    recipe.is_favourite = not recipe.is_favourite
+    db.session.commit()
+ 
+    return redirect(request.referrer or url_for('recipes'))
+ 
+ 
+@app.route('/favourites')
+def favourites():
+    """
+    Favourites page — displays all recipes marked
+    as favourite.
+    """
+    favourite_recipes = Recipe.query.filter_by(is_favourite=True).order_by(Recipe.title).all()
+    return render_template('favourites.html', favourites=favourite_recipes)
+ 
+ 
+@app.route('/about')
+def about():
+    """
+    About page — static informational page about
+    the app and its tech stack.
+    """
+    return render_template('about.html')
+ 
+ 
+# ------------------------------------------------
+# RUN
+# ------------------------------------------------
+ 
+if __name__ == '__main__':
+    app.run(debug=True)

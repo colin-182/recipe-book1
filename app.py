@@ -88,3 +88,76 @@ def recipes():
         categories = categories
     )
  
+@app.route('/recipe/<int:recipe_id>')
+def recipe_detail(recipe_id):
+    recipe = Recipe.query.get_or_404(recipe_id)
+    return render_template('recipe_detail.html', recipe=recipe)
+ 
+ 
+@app.route('/add', methods=['GET', 'POST'])
+def add_recipe():
+   
+    if request.method == 'POST':
+        # Pull form data
+        title       = request.form.get('title', '').strip()
+        category    = request.form.get('category', '').strip()
+        difficulty  = request.form.get('difficulty', '').strip()
+        cook_time   = request.form.get('cook_time', '').strip()
+        servings    = request.form.get('servings', '').strip()
+        description = request.form.get('description', '').strip()
+        ingredients = request.form.get('ingredients', '').strip()
+        steps       = request.form.get('steps', '').strip()
+        tags        = request.form.get('tags', '').strip()
+ 
+        # Basic validation
+        if not title or not description or not ingredients or not steps:
+            flash('Please fill in all required fields.', 'error')
+            return redirect(url_for('add_recipe'))
+ 
+        # Create new recipe object
+        new_recipe = Recipe(
+            title       = title,
+            category    = category,
+            difficulty  = difficulty,
+            cook_time   = cook_time,
+            servings    = int(servings) if servings.isdigit() else 1,
+            description = description,
+            # Split textarea lines into lists
+            ingredients = [i.strip() for i in ingredients.splitlines() if i.strip()],
+            steps       = [s.strip() for s in steps.splitlines() if s.strip()],
+            tags        = [t.strip() for t in tags.split(',') if t.strip()],
+            colour      = '#f5e6c8'  # default card colour
+        )
+ 
+        db.session.add(new_recipe)
+        db.session.commit()
+ 
+        flash(f'"{title}" has been added to your collection!', 'success')
+        return redirect(url_for('recipe_detail', recipe_id=new_recipe.id))
+ 
+    return render_template('add_recipe.html', recipe=None)
+ 
+ 
+@app.route('/recipe/<int:recipe_id>/edit', methods=['GET', 'POST'])
+def edit_recipe(recipe_id):
+    recipe = Recipe.query.get_or_404(recipe_id)
+ 
+    if request.method == 'POST':
+        recipe.title       = request.form.get('title', '').strip()
+        recipe.category    = request.form.get('category', '').strip()
+        recipe.difficulty  = request.form.get('difficulty', '').strip()
+        recipe.cook_time   = request.form.get('cook_time', '').strip()
+        recipe.description = request.form.get('description', '').strip()
+ 
+        servings = request.form.get('servings', '').strip()
+        recipe.servings = int(servings) if servings.isdigit() else recipe.servings
+ 
+        ingredients = request.form.get('ingredients', '').strip()
+        steps       = request.form.get('steps', '').strip()
+        tags        = request.form.get('tags', '').strip()
+ 
+        recipe.ingredients = [i.strip() for i in ingredients.splitlines() if i.strip()]
+        recipe.steps       = [s.strip() for s in steps.splitlines() if s.strip()]
+        recipe.tags        = [t.strip() for t in tags.split(',') if t.strip()]
+ 
+        db.session.commit()

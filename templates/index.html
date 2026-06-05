@@ -1,6 +1,6 @@
-{% extends "bases.html" %}
+{% extends "base.html" %}
 
-{% block title %}Home | Gach Rud Ina á<it>% endblock %</it>
+{% block title %}Home | Gach Rud Ina áit{% endblock %}
 
 {% block content %}
 
@@ -53,7 +53,7 @@
     {% if recent_recipes %}
     <div class="recipe-grid">
         {% for recipe in recent_recipes %}
-        <a href="{{ url_for('recipe_detail', recipe_id=recipe.id) }}" class="recipe-card"></a>
+<a href="{{ url_for('recipe_detail', recipe_id=recipe.id) }}" class="recipe-card">
         
         <!-- Banner -->
          <div class="recipe-card__banner" style="background-color: {{ recipe.colour }};">
@@ -67,7 +67,7 @@
                 method="POST"
                 onclick="event.stopPropagation()">
                 <button type="submit" class="fav-btn" aria-label="Toggle favourite">
-                    {% if receipe.is_favourite %}
+                    {% if recipe.is_favourite %}
                     <i class="fa-solid fa-heart"></i>
                     {% else %}
                     <i class="fa-regular fa-heart"></i>
@@ -84,6 +84,7 @@
                 <span class="badge badge--{{ recipe.difficulty | lower }}"> {{ recipe.difficulty }}</span>
             </div>
          </div>
+         </a>
          {% endfor %}
     </div>
 

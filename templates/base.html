@@ -26,7 +26,7 @@
         <a href="{{ url_for('index') }}" class="navbar__logo">Gach Rud Ina áit</a>
 
         <!-- Hamburger toggle (mobile) -->
-         <button class="navbar__toggle" id="nacToggle" aria-lable="Toggle navigation">
+         <button class="navbar__toggle" id="navToggle" aria-lable="Toggle navigation">
             <span></span>
             <span></span>
             <span></span>
@@ -35,7 +35,8 @@
          <ul class="navbar__links" id="navLinks">
             
             <li><a href="{{ url_for('index') }}"
-            class="navbar__link {% if request.endpoint == 'index' %}navbar__link--active{% endif &}">
+            class="navbar__link {% if request.endpoint == 'index' %}navbar__link--active{% endif %}">
+
         Home
             </a></li>
             <li><a href="{{ url_for('recipes') }}"
@@ -55,9 +56,6 @@
         </ul>
  
         <a href="{{ url_for('add_recipe') }}" class="btn btn--primary navbar__cta">+ Add Recipe</a>
-    </nav>
-
-         </ul>
     </nav>
 
     <!-- Flash messages that will display success/error feedback from Flaks routes -->

@@ -216,9 +216,14 @@ def about():
     return render_template('about.html')
  
  
-# ------------------------------------------------
-# RUN
-# ------------------------------------------------
- 
+@app.route('/db-check')
+def db_check():
+    """Temporary route to view all recipes in the database."""
+    recipes = Recipe.query.all()
+    output = []
+    for r in recipes:
+        output.append(r.to_dict())
+    return {'recipes': output}
+
 if __name__ == '__main__':
     app.run(debug=True, port=5001)

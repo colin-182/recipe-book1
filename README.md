@@ -8,7 +8,11 @@ A personal recipe book web application built with Flask and PostgreSQL. Store, o
 
 ## Live Demo
 
-🌐 [https://recipe-book1-gcx7.onrender.com](https://recipe-book1-gcx7.onrender.com)
+https://recipe-book1-gcx7.onrender.com
+
+## GitHub Link
+
+https://github.com/colin-182/recipe-book1
 
 ---
 

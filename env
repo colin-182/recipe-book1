@@ -1,0 +1,2 @@
+SECRET_KEY=gach-rud-ina-ait-super-secret-123
+DATABASE_URL=sqlite:///dev.db
